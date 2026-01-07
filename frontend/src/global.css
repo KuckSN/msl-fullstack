@@ -1,0 +1,118 @@
+/* Global layout for all pages */
+.page-root {
+  min-height: 100vh;
+  padding: 12px 10px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card-style main content */
+.page-card {
+  width: 100%;
+  max-width: 960px;
+}
+
+/* Common button rows (Upload, Camera, Learn) */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Make cards scroll nicely on mobile */
+.horizontal-cards {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 6px 2px 6px 0;
+  scrollbar-width: thin;
+}
+
+.top-nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Learn page stats row (time left, score, high score) */
+.learn-stat-row {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* ---------- Mobile tweaks ---------- */
+
+/* Mobile: stack time/score/highscore vertically */
+@media (max-width: 640px) {
+  .learn-stat-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .learn-stat-row > * {
+    width: 100%;       /* make each chip full width */
+  }
+}
+
+/* Mobile: center the nav */
+@media (max-width: 640px) {
+  .top-nav-row {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Desktop/tablet: align how you like (center or left) */
+@media (min-width: 641px) {
+  .top-nav-row {
+    justify-content: center;  /* or `flex-start` if you want them left-aligned */
+  }
+}
+
+@media (max-width: 640px) {
+  .page-root {
+    padding: 10px 8px 20px;
+  }
+
+  .page-card {
+    padding: 12px 12px;
+    border-radius: 14px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+  }
+
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-row button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stat-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .stat-chip {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  video {
+    max-height: 260px;
+    object-fit: cover;
+  }
+}
